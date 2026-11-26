@@ -1,0 +1,5 @@
+{
+  "http_status": 401,
+  "error": "api_key_required",
+  "message": "Send your API key in the X-API-Key header."
+}

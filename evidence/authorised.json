@@ -1,0 +1,12 @@
+{
+  "http_status": 200,
+  "success": true,
+  "count": 4,
+  "data": [
+    {"id":"GT-101","name":"Old Goa Heritage Walk","region":"North Goa","duration":"4 hours","price_inr":899},
+    {"id":"GT-102","name":"Dudhsagar Falls & Spice Plantation","region":"South Goa","duration":"Full day","price_inr":2499},
+    {"id":"GT-103","name":"Fontainhas Latin Quarter Trail","region":"Panaji","duration":"2.5 hours","price_inr":699},
+    {"id":"GT-104","name":"Grand Island Boat Escape","region":"North Goa","duration":"Half day","price_inr":1899}
+  ],
+  "meta":{"request_id":"sample-request-id","remaining_today":99}
+}

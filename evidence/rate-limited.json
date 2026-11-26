@@ -1,0 +1,9 @@
+{
+  "http_status": 429,
+  "error": "daily_limit_exceeded",
+  "message": "Daily limit of 1 requests reached.",
+  "retry_after": "UTC midnight",
+  "retry_hint": "Wait until the next UTC day or ask the tour operator for a higher daily limit.",
+  "limit": 1,
+  "usage_today": 2
+}

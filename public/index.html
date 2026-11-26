@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Manage API keys for the Goan Trails tour packages API.">
+  <title>Goan Trails | API Control Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">GT</span><span>GOAN <b>TRAILS</b><small>DEVELOPER CONTROL ROOM</small></span></a>
+      <span class="live-pill"><i></i> API SYSTEM ONLINE</span>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">PARTNER DEVELOPER PORTAL <span>✦</span></p>
+          <h1>Your tours.<br><em>Your API.</em><br>Under control.</h1>
+          <p class="hero-text">Create secure access keys, track every request and keep your Goan experiences protected.</p>
+          <a class="hero-link" href="#console">Explore the control room <span>↓</span></a>
+        </div>
+        <div class="hero-photo" role="img" aria-label="Aerial view of a tropical Goan coastline">
+          <div class="photo-caption"><span>01 / GOA, INDIA</span><b>Where every journey begins.</b></div>
+        </div>
+        <div class="hero-stamp">GOA<br><strong>°15</strong></div>
+      </section>
+
+      <section class="stats" id="stats">
+        <article class="stat-card"><span>ACTIVE KEYS</span><strong id="activeCount">—</strong><small>Currently authorised</small></article>
+        <article class="stat-card"><span>TOTAL REQUESTS</span><strong id="requestCount">—</strong><small>All-time API usage</small></article>
+        <article class="stat-card"><span>PROTECTION</span><strong class="secure">ON</strong><small>Hashed keys · daily limits</small></article>
+      </section>
+
+      <section class="console" id="console">
+        <div class="section-heading"><div><p class="eyebrow">ACCESS MANAGEMENT</p><h2>Key control room</h2></div><span class="secure-label"><i></i> SECURE SESSION</span></div>
+        <div id="loginPanel" class="login-panel">
+          <div class="login-art"><div class="sun"></div><div class="login-art-copy"><span>GOAN TRAILS / PARTNERS</span><strong>Access for<br>the curious.</strong></div></div>
+          <form id="loginForm" class="login-form"><p class="eyebrow">ADMINISTRATOR ACCESS</p><h3>Welcome back.</h3><p>Sign in to manage partner API credentials.</p><label for="adminPassword">Admin password</label><input id="adminPassword" type="password" autocomplete="current-password" placeholder="Enter your password" required><button class="btn btn-primary" type="submit">Unlock dashboard <span>↗</span></button><p id="loginMessage" class="message" aria-live="polite"></p></form>
+        </div>
+        <div id="dashboard" hidden>
+          <div class="create-panel">
+            <div><p class="eyebrow">NEW CREDENTIAL</p><h3>Create an API key</h3><p>Give each integration its own key and daily request allowance.</p></div>
+            <form id="createForm" class="create-form">
+              <label>Key name<input id="keyName" maxlength="80" placeholder="e.g. Partner booking website" required></label>
+              <label>Daily limit<input id="dailyLimit" type="number" min="1" max="100000" value="100" required></label>
+              <button class="btn btn-primary" type="submit">＋ Generate key</button>
+            </form>
+          </div>
+          <div id="newKeyPanel" class="new-key-panel" hidden aria-live="polite">
+            <div><span class="eyebrow">COPY NOW · SHOWN ONCE</span><h3>Your new key is ready</h3><p>We store only its SHA-256 hash. This token cannot be viewed again.</p><code id="newKeyValue"></code></div>
+            <button id="copyKey" class="btn btn-light" type="button">Copy key</button>
+          </div>
+          <div class="table-heading"><div><p class="eyebrow">CREDENTIALS</p><h3>API keys <span id="keyTotal">0</span></h3></div><button id="refreshBtn" class="btn btn-light" type="button">↻ Refresh</button></div>
+          <div id="keysList" class="keys-list"><p class="empty">Loading keys…</p></div>
+          <div class="console-footer"><span>All usage timestamps are stored in UTC.</span><button id="logoutBtn" class="text-button" type="button">Sign out ↗</button></div>
+        </div>
+      </section>
+
+      <section class="api-guide">
+        <div><p class="eyebrow">FOR DEVELOPERS</p><h2>One header.<br><em>Protected access.</em></h2><p>Use your key in the request header to access the live package catalogue.</p></div>
+        <div class="code-card"><div class="code-top"><span><i></i><i></i><i></i> REQUEST EXAMPLE</span><button id="copyCurl" type="button">COPY</button></div><pre>curl http://localhost:3000/api/v1/packages \\
+  -H <b>'X-API-Key: YOUR_API_KEY'</b></pre><div class="code-foot"><span>GET /api/v1/packages</span><span>JSON · HTTPS recommended</span></div></div>
+      </section>
+    </main>
+    <footer><span>© 2026 GOAN TRAILS</span><span>BUILT FOR BETTER JOURNEYS <b>✦</b></span></footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body></html>
